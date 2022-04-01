@@ -1,6 +1,6 @@
 :root {
   /* час трансформації */
-  --trans-duration: 200ms;
+  --trans-duration: 1000ms;
   /* функція розподілу часу */
   --trans-timing-func: cubic-bezier(0.4, 0, 0.2, 1);
   /* основний шрифт */
@@ -156,7 +156,7 @@ a:focus-visible {
   height: 4px;
   border-radius: 2px;
   background-color: var(--color-title-nav);
-  bottom: -33px;
+  bottom: -34px;
   left: 0;
   pointer-events: none;
   transition-property: background-color;
@@ -650,4 +650,50 @@ a:focus-visible {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   margin: -1px;
+}
+.beckdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000033;
+  visibility: visible;
+  opacity: 1;
+  transform: visibility, opacity;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-timing-func);
+}
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+.modal-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 6px;
+  border: 1px solid #0000001a;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.modal-icon {
+  width: 18px;
+  height: 18px;
+  fill: #000000;
+}
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
