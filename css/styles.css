@@ -1,6 +1,6 @@
 :root {
   /* час трансформації */
-  --trans-duration: 2500ms;
+  --trans-duration: 200ms;
   /* функція розподілу часу */
   --trans-timing-func: cubic-bezier(0.4, 0, 0.2, 1);
   /* основний шрифт */
@@ -151,15 +151,19 @@ a:focus-visible {
 .header-nav-link-active::after {
   content: "";
   position: absolute;
-  display: block;
+
   width: 100%;
   height: 4px;
+  border-radius: 2px;
   background-color: var(--color-title-nav);
-  bottom: -28px;
+  bottom: -33px;
   left: 0;
   pointer-events: none;
+  transition-property: background-color;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-timing-func);
 }
-.header-nav-link-active::after:hover {
+.header-nav-link-active:hover::after {
   background-color: var(--color-nav-active);
 }
 /* header-contacts */
@@ -564,7 +568,7 @@ a:focus-visible {
   flex-wrap: wrap;
 }
 .gallery-card-link {
-  /* max-width: 370px; */
+  max-width: 370px;
   display: block;
   text-align: left;
   transition-property: box-shadow;
@@ -603,6 +607,36 @@ a:focus-visible {
   font-size: 16px;
   line-height: 1.87;
   color: var(--color-primary-light);
+}
+/* overlay */
+.gallery-card-tumb {
+  position: relative;
+  overflow: hidden;
+}
+.card-overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  transition: transform;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-timing-func);
+  transform: translateY(100%);
+
+  background-color: var(--color-nav-active);
+  color: var(--color-primary-dark);
+
+  font-size: 18px;
+  line-height: 1.33;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.gallery-card-link:hover .card-overlay {
+  transform: translateY(0);
 }
 /* робить елемент невидимим */
 .visually-hidden {
