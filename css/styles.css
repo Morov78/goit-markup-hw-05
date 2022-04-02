@@ -1,6 +1,6 @@
 :root {
   /* час трансформації */
-  --trans-duration: 1000ms;
+  --trans-duration: 250ms;
   /* функція розподілу часу */
   --trans-timing-func: cubic-bezier(0.4, 0, 0.2, 1);
   /* основний шрифт */
@@ -653,26 +653,32 @@ a:focus-visible {
 }
 .beckdrop {
   position: fixed;
-  left: 0;
+  left: 50%;
   top: 0;
+  transform: translate(-50%);
   width: 100vw;
   height: 100vh;
   background-color: #00000033;
   visibility: visible;
+  pointer-events: initial;
   opacity: 1;
-  transform: visibility, opacity;
-  transition-duration: var(--trans-duration);
-  transition-timing-function: var(--trans-timing-func);
-}
+  }
 .modal {
   position: absolute;
   left: 50%;
   top: 50%;
+
   transform: translate(-50%, -50%);
+
   width: 528px;
   height: 581px;
   border-radius: 4px;
   background-color: #ffffff;
+  transition-property:  transform(translate(-50%, -50%) scale(1)), opacity(1);
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-timing-func);
+  
+  
 }
 .modal-button {
   position: absolute;
@@ -692,8 +698,17 @@ a:focus-visible {
   height: 18px;
   fill: #000000;
 }
-.is-hidden {
+.beckdrop.is-hidden > .modal{
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+.beckdrop.is-hidden {
   visibility: hidden;
-  opacity: 0;
+  transition: opacity (0);
+  
+  transition-delay: var(--trans-duration);
   pointer-events: none;
 }
+
+
+  
