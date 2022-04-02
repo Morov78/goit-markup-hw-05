@@ -155,7 +155,7 @@ a:focus-visible {
   width: 100%;
   height: 4px;
   border-radius: 2px;
-  background-color: var(--color-title-nav);
+  background-color: var(--color-nav-active);
   bottom: -34px;
   left: 0;
   pointer-events: none;
@@ -289,6 +289,7 @@ a:focus-visible {
   height: 120px;
   margin-bottom: 30px;
   background-color: var(--bcg-team);
+  border-radius: 4px;
 }
 .features-icon {
   width: 70px;
@@ -540,7 +541,7 @@ a:focus-visible {
 .gallery-button {
   padding: 6px 22px;
   font-family: inherit;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.85;
 
@@ -627,7 +628,7 @@ a:focus-visible {
   color: var(--color-primary-dark);
 
   font-size: 18px;
-  line-height: 1.33;
+  line-height: 1.55;
   padding-left: 24px;
   padding-right: 24px;
   display: flex;
